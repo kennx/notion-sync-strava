@@ -36,10 +36,7 @@ async function main() {
       const start = pageResult.properties.start_date_local.date.start;
       pageId = pageResult.properties.id.number
       after = Number(new Date(start).getTime() / 1000);
-    }
-
-    console.log(pageId, after);
-    
+    }    
 
     let loop: boolean = true;
     let page = 1;
