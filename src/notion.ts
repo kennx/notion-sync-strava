@@ -16,13 +16,18 @@ export async function insertActivity(
         activity.map.summary_polyline,
         config.mapbox_access_token
       );
-      const start_latitude = [activity.start_latlng[0], activity.start_latlng[1]]
+      const start_latitude = [
+        activity.start_latlng[0],
+        activity.start_latlng[1],
+      ];
       children = [
         {
           type: "embed",
           embed: {
-            url: `https://maps.google.com/maps?q=${start_latitude.join(",")}&hl=zh-cn`
-          }
+            url: `https://maps.google.com/maps?q=${start_latitude.join(
+              ","
+            )}&hl=zh-cn`,
+          },
         },
       ];
     }
@@ -167,6 +172,7 @@ export async function insertActivity(
     });
   } catch (error) {
     console.log(error);
+    console.log(activity.name, activity.start_date_local);
+    throw error;
   }
 }
-
